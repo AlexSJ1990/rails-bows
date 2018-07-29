@@ -1,0 +1,26 @@
+
+<div class="form container">
+  <div class="row">
+    <div class="col-xs-offset-2 col-xs-8 form-column">
+      <h2> Add a new Bow </h2>
+      <%= simple_form_for(@bow) do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+      <div class="form-inputs">
+        <%= f.input :description, required: false, label: "description of bow", prompt: "description" %>
+        <%= f.input :color, required: false %>
+        <%= f.input :size, required: false %>
+        <%= f.input :photo, required: false %>
+        <%= f.input :price_cents, required: false %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, :class => "create-button" %>
+      </div>
+      <%= link_to 'Back', bows_path%>
+      <% end %>
+    </div>
+  </div>
+</div>
+
