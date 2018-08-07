@@ -3,6 +3,7 @@ class BowPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+  end
 
     def new?
       create?
@@ -16,6 +17,10 @@ class BowPolicy < ApplicationPolicy
       return true
     end
 
+    def edit?
+      update?
+    end
+
     def destroy?
       record.user == user
     end
@@ -23,5 +28,4 @@ class BowPolicy < ApplicationPolicy
     def update?
       record.user == user
     end
-  end
 end

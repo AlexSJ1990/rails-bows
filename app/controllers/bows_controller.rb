@@ -29,11 +29,16 @@ before_action :set_bow, only: [:show, :edit, :update, :destroy]
   end
 
   def edit
-    authorize @bow
+
   end
 
   def update
-
+   if @bow.update(bow_params)
+      redirect_to bows_path
+    else
+      render :edit
+    end
+    authorize @bow
   end
 
   def destroy
@@ -47,7 +52,7 @@ before_action :set_bow, only: [:show, :edit, :update, :destroy]
     end
 
     def bow_params
-      params.require(:bow).permit("color", "size", "description", "photo", "num_in_stock", "price_cents", "user_id")
+      params.require(:bow).permit("color", "size", "description", "photo", "num_in_stock", "price_cents")
     end
 
 end
