@@ -2,7 +2,7 @@
 <div class="form container">
   <div class="row">
     <div class="col-xs-offset-2 col-xs-8 form-column">
-      <h2> Add a new Bow </h2>
+
       <%= simple_form_for(@bow) do |f| %>
       <%= f.error_notification %>
       <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
