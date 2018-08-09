@@ -5,7 +5,7 @@
         <%= link_to bow.description, bow_path(bow) %>
         <%= bow.price_cents %>
         <%= bow.size %>
-        <%= bow.num_in_stock %>
+        <p>Price: <%= humanized_money_with_symbol(bow.price) %></p>
       </div>
     <% end %>
   </div>
