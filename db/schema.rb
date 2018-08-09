@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_07_200427) do
+ActiveRecord::Schema.define(version: 2018_08_09_202933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,20 +21,23 @@ ActiveRecord::Schema.define(version: 2018_08_07_200427) do
     t.string "description"
     t.string "photo"
     t.integer "num_in_stock"
-    t.integer "price_cents"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "bow_sku"
+    t.integer "price_cents", default: 0, null: false
     t.index ["user_id"], name: "index_bows_on_user_id"
   end
 
   create_table "orders", force: :cascade do |t|
     t.string "status"
     t.integer "quantity"
-    t.bigint "bow_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "bow_id"
     t.index ["bow_id"], name: "index_orders_on_bow_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -72,6 +75,7 @@ ActiveRecord::Schema.define(version: 2018_08_07_200427) do
 
   add_foreign_key "bows", "users"
   add_foreign_key "orders", "bows"
+  add_foreign_key "orders", "users"
   add_foreign_key "reviews", "bows"
   add_foreign_key "reviews", "users"
 end
