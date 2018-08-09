@@ -1,10 +1,17 @@
 <div class="wrapper">
   <div class="cards">
-  <% @bows.each do |bow|%>
-    <%= bow.description %>
-  <% end %>
+    <% @bows.each do |bow|%>
+      <div class="card">
+        <%= link_to bow.description, bow_path(bow) %>
+        <%= bow.price_cents %>
+        <%= bow.size %>
+        <%= bow.num_in_stock %>
+      </div>
+    <% end %>
+  </div>
+  <div class="nav">
+    <%= link_to "Add a new bow", new_bow_path %>
   </div>
 </div>
-
 
 

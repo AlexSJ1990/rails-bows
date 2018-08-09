@@ -42,6 +42,9 @@ before_action :set_bow, only: [:show, :edit, :update, :destroy]
   end
 
   def destroy
+    if @bow.delete
+      redirect_to bows_path
+    end
   end
 
   private
