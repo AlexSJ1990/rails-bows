@@ -12,3 +12,10 @@
       method: :delete,
       data: { confirm: "Are you sure?" } %>
   <% end %>
+
+<div class="purchase">
+  <%= form_tag orders_path do %>
+  <%= hidden_field_tag 'bow_id', @bow.id %>
+  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+<% end %>
+</div>
