@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_09_202933) do
+ActiveRecord::Schema.define(version: 2018_08_11_104458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 2018_08_09_202933) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.string "bow_sku"
     t.integer "price_cents", default: 0, null: false
+    t.string "sku"
     t.index ["user_id"], name: "index_bows_on_user_id"
   end
 
@@ -36,6 +36,10 @@ ActiveRecord::Schema.define(version: 2018_08_09_202933) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.bigint "bow_id"
+    t.string "state"
+    t.json "payment"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "bow_sku"
     t.index ["bow_id"], name: "index_orders_on_bow_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
