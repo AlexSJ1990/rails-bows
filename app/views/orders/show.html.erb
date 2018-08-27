@@ -1,3 +1,7 @@
-<p><%= @order.status %></p>
-<%= @order.bow.description %>
-<%= @order.user.email %>
+
+<h1>Order</h1>
+<ul>
+  <li>Status: <%= @order.state %></li>
+  <li>Item: <%= @order.bow_sku %></li>
+  <li>Amount: <%= humanized_money_with_symbol(@order.amount) %></li>
+<ul>
