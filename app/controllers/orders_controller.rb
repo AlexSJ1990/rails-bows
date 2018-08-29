@@ -1,4 +1,9 @@
 class OrdersController < ApplicationController
+
+  def index
+    @bows = policy_scope(Bow)
+  end
+
   def create
     bow = Bow.find(params[:bow_id])
     order = Order.create!(bow_sku: bow.sku, state: "pending", amount: bow.price, user: current_user, bow: bow)
