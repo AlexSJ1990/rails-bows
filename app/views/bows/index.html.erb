@@ -1,17 +1,33 @@
+
+
 <div class="wrapper">
-  <div class="cards">
-    <% @bows.each do |bow|%>
-      <div class="card">
-        <%= link_to bow.description, bow_path(bow) %>
-        <%= bow.price_cents %>
-        <%= bow.size %>
-        <p>Price: <%= humanized_money_with_symbol(bow.price) %></p>
+
+  <div class="sort">
+
+  </div>
+
+  <div class="container">
+    <div class="row">
+     <!--  <div class="col-xs-4 col-xs-offset-0"> -->
+        <div class="cards">
+          <% @bows.each do |bow|%>
+            <div class="bow-card">
+              <div class="card-photo">
+              <!-- link to photo url -->
+              </div>
+              <div class="card-description">
+                <%= link_to bow.description, bow_path(bow) %>
+                <p>Price: <%= humanized_money_with_symbol(bow.price) %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
       </div>
-    <% end %>
+    </div>
   </div>
-  <div class="nav">
-    <%= link_to "Add a new bow", new_bow_path %>
-  </div>
+
+  <%= link_to "Add a new bow", new_bow_path %>
+
 </div>
 
 

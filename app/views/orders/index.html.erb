@@ -1,0 +1,4 @@
+<p> test </p>
+<% if policy(Order).index? %>
+  <%= link_to "Order", orders_path %>
+<% end %>
