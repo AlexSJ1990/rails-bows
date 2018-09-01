@@ -8,4 +8,6 @@ has_many :bows, dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  # validates :first_name, presence: true
+  validates :email, presence: true
 end
