@@ -2,17 +2,15 @@
 
 <%= link_to "back to bows", bows_path %>
 
-<%= link_to "edit bows", edit_bow_path if current_user == @bow.user %>
+<!-- need to review - do we want this to be an admin feature? -->
+<%#= link_to "edit bows", edit_bow_path if current_user == @bow.user %>
 
 
-
-
-
-<% if current_user == @bow.user %>
-<%=  link_to "Delete", bow_path(@bow),
+<%# if current_user == @bow.user %>
+<%#=  link_to "Delete", bow_path(@bow),
       method: :delete,
       data: { confirm: "Are you sure?" } %>
-  <% end %>
+  <%# end %>
 
 <div class="purchase">
   <%= form_tag orders_path do %>

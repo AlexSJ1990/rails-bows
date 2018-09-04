@@ -1,5 +1,3 @@
-
-
 <div class="wrapper">
 
   <div class="sort">
@@ -11,15 +9,17 @@
      <!--  <div class="col-xs-4 col-xs-offset-0"> -->
         <div class="cards">
           <% @bows.each do |bow|%>
-            <div class="bow-card">
-              <div class="card-photo">
-              <!-- link to photo url -->
+            <%= link_to bow_path(bow) do %>
+              <div class="bow-card">
+                <div class="card-photo">
+                <!-- link to photo url -->
+                </div>
+                <div class="card-description">
+                  <%= bow.description %>
+                  <p>Price: <%= humanized_money_with_symbol(bow.price) %></p>
+                </div>
               </div>
-              <div class="card-description">
-                <%= link_to bow.description, bow_path(bow) %>
-                <p>Price: <%= humanized_money_with_symbol(bow.price) %></p>
-              </div>
-            </div>
+            <% end %>
           <% end %>
         </div>
       </div>
